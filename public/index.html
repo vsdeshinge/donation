@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posspole x BIRAC Donation Form</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="form-container">
+    <h1>Posspole x BIRAC Donation Form</h1>
+    <form id="donationForm">
+      <label for="name">Name <span>*</span></label>
+      <input type="text" id="name" name="name" required placeholder="Enter your name">
+
+      <label for="contact">Contact Detail <span>*</span></label>
+      <input type="text" id="contact" name="contact" required placeholder="Enter your contact detail">
+
+      <label for="address">Address</label>
+      <textarea id="address" name="address" placeholder="Enter your address"></textarea>
+
+      <label for="email">Email ID</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
+
+      <label for="categories">Categories <span>*</span></label>
+      <div id="categories" class="categories">
+        <!-- Categories dynamically generated here -->
+      </div>
+
+      <div id="productsContainer" class="products-container">
+        <!-- Product cards dynamically generated here -->
+      </div>
+
+      <label for="willingness">Willingness to Donate <span>*</span></label>
+      <div class="radio-group">
+        <input type="radio" id="yes" name="willingness" value="YES" required>
+        <label for="yes">YES</label>
+        <input type="radio" id="no" name="willingness" value="NO" required>
+        <label for="no">NO</label>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "Analytical Instruments": [
+    { "name": "Spectrophotometer", "image": "/images/spectrophotometer.jpg" },
+    { "name": "Chromatograph", "image": "/images/chromatograph.jpg" }
+  ],
+  "Balances and Measuring Equipment": [
+    { "name": "Weighing Scale", "image": "/images/weighing-scale.jpg" },
+    { "name": "Measuring Tape", "image": "/images/measuring-tape.jpg" }
+  ]
+}
