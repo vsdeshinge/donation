@@ -1,10 +1,114 @@
-{
-  "Analytical Instruments": [
-    { "name": "Spectrophotometer", "image": "/images/spectrophotometer.jpg" },
-    { "name": "Chromatograph", "image": "/images/chromatograph.jpg" }
-  ],
-  "Balances and Measuring Equipment": [
-    { "name": "Weighing Scale", "image": "/images/weighing-scale.jpg" },
-    { "name": "Measuring Tape", "image": "/images/measuring-tape.jpg" }
-  ]
-}
+[
+  {
+    "name": "Analytical Instruments",
+    "products": [
+      { "name": "Spectrophotometer", "image": "/images/spectrophotometer.jpg" },
+      { "name": "Chromatograph", "image": "/images/chromatograph.jpg" }
+    ]
+  },
+  {
+    "name": "Balances and Measuring Equipment",
+    "products": [
+      { "name": "Weighing Scale", "image": "/images/weighing_scale.jpg" },
+      { "name": "Measuring Tape", "image": "/images/measuring_tape.jpg" }
+    ]
+  },
+  {
+    "name": "Centrifuges and Spinning Equipment",
+    "products": [
+      { "name": "Centrifuge Machine", "image": "/images/centrifuge_machine.jpg" },
+      { "name": "Spinning Rotor", "image": "/images/spinning_rotor.jpg" }
+    ]
+  },
+  {
+    "name": "Electrochemistry and Blood Analysis",
+    "products": [
+      { "name": "pH Meter", "image": "/images/ph_meter.jpg" },
+      { "name": "Blood Analyzer", "image": "/images/blood_analyzer.jpg" }
+    ]
+  },
+  {
+    "name": "Fermentation and Cell Culture",
+    "products": [
+      { "name": "Bioreactor", "image": "/images/bioreactor.jpg" },
+      { "name": "Cell Culture Flask", "image": "/images/cell_culture_flask.jpg" }
+    ]
+  },
+  {
+    "name": "General Laboratory Equipment",
+    "products": [
+      { "name": "Hot Plate", "image": "/images/hot_plate.jpg" },
+      { "name": "Laboratory Tongs", "image": "/images/laboratory_tongs.jpg" }
+    ]
+  },
+  {
+    "name": "Laboratory Incubators",
+    "products": [
+      { "name": "CO2 Incubator", "image": "/images/co2_incubator.jpg" },
+      { "name": "Shaking Incubator", "image": "/images/shaking_incubator.jpg" }
+    ]
+  },
+  {
+    "name": "Liquid Handling and Processing",
+    "products": [
+      { "name": "Pipette", "image": "/images/pipette.jpg" },
+      { "name": "Liquid Dispenser", "image": "/images/liquid_dispenser.jpg" }
+    ]
+  },
+  {
+    "name": "Medical and Clinical Devices",
+    "products": [
+      { "name": "ECG Machine", "image": "/images/ecg_machine.jpg" },
+      { "name": "Patient Monitor", "image": "/images/patient_monitor.jpg" }
+    ]
+  },
+  {
+    "name": "Microscopy and Imaging",
+    "products": [
+      { "name": "Light Microscope", "image": "/images/light_microscope.jpg" },
+      { "name": "Digital Imaging System", "image": "/images/digital_imaging_system.jpg" }
+    ]
+  },
+  {
+    "name": "Mixing and Shaking Equipment",
+    "products": [
+      { "name": "Magnetic Stirrer", "image": "/images/magnetic_stirrer.jpg" },
+      { "name": "Orbital Shaker", "image": "/images/orbital_shaker.jpg" }
+    ]
+  },
+  {
+    "name": "Molecular Biology Equipment",
+    "products": [
+      { "name": "PCR Machine", "image": "/images/pcr_machine.jpg" },
+      { "name": "Gel Electrophoresis System", "image": "/images/gel_electrophoresis.jpg" }
+    ]
+  },
+  {
+    "name": "Refrigeration and Cooling System",
+    "products": [
+      { "name": "Lab Freezer", "image": "/images/lab_freezer.jpg" },
+      { "name": "Refrigerated Centrifuge", "image": "/images/refrigerated_centrifuge.jpg" }
+    ]
+  },
+  {
+    "name": "Specialized Systems",
+    "products": [
+      { "name": "Mass Spectrometer", "image": "/images/mass_spectrometer.jpg" },
+      { "name": "Nuclear Magnetic Resonance (NMR)", "image": "/images/nmr.jpg" }
+    ]
+  },
+  {
+    "name": "Sterilization Equipment",
+    "products": [
+      { "name": "Autoclave", "image": "/images/autoclave.jpg" },
+      { "name": "UV Sterilizer", "image": "/images/uv_sterilizer.jpg" }
+    ]
+  },
+  {
+    "name": "Tissue Processing and Histology",
+    "products": [
+      { "name": "Microtome", "image": "/images/microtome.jpg" },
+      { "name": "Tissue Embedding Station", "image": "/images/tissue_embedding_station.jpg" }
+    ]
+  }
+]

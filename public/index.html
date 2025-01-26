@@ -9,7 +9,12 @@
 </head>
 <body>
   <div class="form-container">
-    <h1>Posspole x BIRAC Donation Form</h1>
+    <!-- Logo Section -->
+    <div class="logo-container">
+      <img src="/images/logo.png" alt="Posspole Logo" class="logo">
+    </div>
+
+    <h1>POSSPOLE x BIRAC</h1>
     <form id="donationForm">
       <label for="name">Name <span>*</span></label>
       <input type="text" id="name" name="name" required placeholder="Enter your name">
@@ -33,12 +38,16 @@
       </div>
 
       <label for="willingness">Willingness to Donate <span>*</span></label>
-      <div class="radio-group">
-        <input type="radio" id="yes" name="willingness" value="YES" required>
-        <label for="yes">YES</label>
-        <input type="radio" id="no" name="willingness" value="NO" required>
-        <label for="no">NO</label>
-      </div>
+<div class="radio-group">
+  <div>
+    <input type="radio" id="yes" name="willingness" value="YES" required>
+    <label for="yes">YES</label>
+  </div>
+  <div>
+    <input type="radio" id="no" name="willingness" value="NO" required>
+    <label for="no">NO</label>
+  </div>
+</div>
 
       <button type="submit">Submit</button>
     </form>
