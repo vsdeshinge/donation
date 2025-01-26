@@ -23,7 +23,7 @@ body {
 }
 
 .logo {
-  max-width: 150px;
+  max-width: 300px;
   height: auto;
 }
 
@@ -38,7 +38,7 @@ h1 {
 label {
   display: block;
   margin: 15px 0 5px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 input, textarea, button {
@@ -87,6 +87,8 @@ textarea {
   border-radius: 5px;
   padding: 10px;
   text-align: center;
+  
+  
   display: inline-block;
   width: 150px;
   margin: 10px;
