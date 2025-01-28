@@ -1,13 +1,19 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const fs = require("fs");
+const fs = require("fs").promises;
+const session = require("express-session");
 const { MongoClient } = require("mongodb");
+const path = require("path");
 
 const app = express();
 const PORT = 3000;
 
-// MongoDB Connection URI and Database Name
+// Admin Credentials (For Now, Store in Environment Variables)
+const ADMIN_USERNAME = "admin";
+const ADMIN_PASSWORD = "password";
+
+// MongoDB Connection
 const MONGODB_URI = "mongodb+srv://shakthi:shakthi@shakthi.xuq11g4.mongodb.net/?retryWrites=true&w=majority";
 const DATABASE_NAME = "shakthi";
 const COLLECTION_NAME = "formData";
@@ -15,53 +21,74 @@ const COLLECTION_NAME = "formData";
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("public"));
+app.use(express.static("admin"));
 
-const categoriesData = JSON.parse(fs.readFileSync("data/products.json", "utf-8"));
+// Session Middleware for Authentication
+app.use(session({
+  secret: "securesecret",
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // Set `secure: true` for HTTPS environments
+}));
 
-// MongoDB Client
 let db;
-MongoClient.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(client => {
-    console.log("Connected to MongoDB");
-    db = client.db(DATABASE_NAME);
-  })
-  .catch(err => {
-    console.error("Failed to connect to MongoDB", err);
-  });
-
-// Endpoint to fetch all categories
-app.get("/api/categories", (req, res) => {
-  res.json(categoriesData.map(category => ({ name: category.name }))); // Send only category names
-});
-
-// Endpoint to fetch products by category
-app.get("/api/products", (req, res) => {
-  const { category } = req.query;
-  const categoryData = categoriesData.find(c => c.name === category);
-
-  if (categoryData && categoryData.products) {
-    res.json(categoryData.products);
-  } else {
-    res.status(404).send("Category not found or no products available");
-  }
-});
-
-// Endpoint to handle form submission
-app.post("/api/submit", async (req, res) => {
+async function connectDB() {
   try {
-    const formData = req.body;
-    console.log("Form Data Received:", formData);
+    const client = await MongoClient.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+    console.log("✅ Connected to MongoDB");
+    db = client.db(DATABASE_NAME);
+  } catch (err) {
+    console.error("❌ MongoDB Connection Failed:", err);
+    process.exit(1);
+  }
+}
+connectDB();
 
-    // Insert data into MongoDB
-    const collection = db.collection(COLLECTION_NAME);
-    const result = await collection.insertOne(formData);
+// Admin Login Endpoint
+app.post("/api/admin/login", (req, res) => {
+  const { username, password } = req.body;
 
-    console.log("Data saved to MongoDB:", result.insertedId);
-    res.status(200).send("Form submitted successfully");
-  } catch (error) {
-    console.error("Error saving data to MongoDB:", error);
-    res.status(500).send("Failed to submit form");
+  if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+    req.session.admin = true;
+    res.status(200).send("Login successful");
+  } else {
+    res.status(401).send("Unauthorized");
   }
 });
 
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+// Middleware to Protect Admin Routes
+function checkAuth(req, res, next) {
+  if (req.session.admin) {
+    next();
+  } else {
+    res.status(403).send("Forbidden");
+  }
+}
+
+// Fetch All Form Data (Protected)
+app.get("/api/admin/data", checkAuth, async (req, res) => {
+  try {
+    const collection = db.collection(COLLECTION_NAME);
+    const data = await collection.find().toArray();
+    console.log(data);
+    res.json(data);
+  } catch (error) {
+    console.error("❌ Error fetching data:", error);
+    res.status(500).send("Failed to fetch data");
+  }
+});
+
+// Serve the Admin Dashboard (Protected)
+app.get("/admin/admin.html", checkAuth, (req, res) => {
+  res.sendFile(path.join(__dirname, "admin", "admin.html"));
+});
+
+// Logout Endpoint
+app.post("/api/admin/logout", (req, res) => {
+  req.session.destroy(() => {
+    res.redirect("/admin/login.html");
+  });
+});
+
+// Start Server
+app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));

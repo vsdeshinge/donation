@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-container">
+    <h1>Admin Login</h1>
+    <form id="loginForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required placeholder="Enter username">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required placeholder="Enter password">
+
+      <button type="submit">Login</button>
+    </form>
+    <p id="errorMessage" style="color: red; text-align: center; display: none;">Invalid credentials!</p>
+  </div>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-container">
+    <h1>Admin Dashboard</h1>
+
+    <!-- Logout Button -->
+    <button id="logoutButton">Logout</button>
+
+    <!-- Table to Display Submitted Data -->
+    <table id="formDataTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Contact</th>
+          <th>Address</th>
+          <th>Email</th>
+          <th>Willingness</th>
+          <th>Products</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data dynamically populated here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+  <script>
+    // Logout Functionality
+    document.getElementById("logoutButton").addEventListener("click", () => {
+      fetch("/api/admin/logout", { method: "POST" })
+        .then(() => window.location.href = "/admin/login.html");
+    });
+  </script>
+</body>
+</html>
