@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("/api/admin/check-auth")
       .then(response => {
         if (!response.ok) {
-          window.location.href = "/login.html"; // Redirect to login if not authenticated
+          window.location.href = "/admin/login.html"; // Redirect to login if not authenticated
         } else {
           loadFormData();
         }
