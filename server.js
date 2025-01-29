@@ -46,6 +46,18 @@ app.get("/api/products", (req, res) => {
   }
 });
 
+app.get("/api/submissions", async (req, res) => {
+  try {
+    const collection = db.collection(COLLECTION_NAME);
+    const data = await collection.find().toArray();
+    res.json(data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).send("Error retrieving data");
+  }
+});
+
+
 // Endpoint to handle form submission
 app.post("/api/submit", async (req, res) => {
   try {
@@ -62,6 +74,29 @@ app.post("/api/submit", async (req, res) => {
     console.error("Error saving data to MongoDB:", error);
     res.status(500).send("Failed to submit form");
   }
+});
+
+
+
+const ADMIN_CREDENTIALS = {
+  username: "a",
+  password: "a"
+};
+
+// API Route for Admin Login
+app.post("/api/admin/login", (req, res) => {
+  const { username, password } = req.body;
+
+  if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+    res.status(200).json({ message: "Login successful" });
+  } else {
+    res.status(401).json({ message: "Invalid username or password" });
+  }
+});
+
+// Serve Admin Dashboard (admin.html)
+app.get("/admin", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "admin.html"));
 });
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

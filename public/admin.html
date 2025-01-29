@@ -1,43 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="css/admin.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Submissions</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            margin-top: 10px;
+            border: 1px solid #ddd; /* Ensures main table border */
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #a9acaf;
+            color: white;
+            font-weight: 500;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Nested Table Styling */
+        .nested-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+    background: transparent; /* Remove background color */
+    border: none; /* No border */
+}
+
+.nested-table td, 
+.nested-table th {
+    border: none; /* Remove inner lines */
+    padding: 8px;
+    text-align: left;
+    font-size: 14px;
+    background: transparent;
+}
+
+.nested-table tr {
+    background: transparent;
+}
+
+    </style>
 </head>
 <body>
-  <div class="admin-container">
-    <h1>Admin Dashboard</h1>
+    <div class="container">
+        <h2>Admin Panel - User Submissions</h2>
+        <table>
+            <thead>
+                <tr>
+                   
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Products</th>
+                    <th>Willingness</th>
+                </tr>
+            </thead>
+            <tbody id="submissionsTable">
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
 
-    <!-- Logout Button -->
-    <button id="logoutButton">Logout</button>
+    <script>
+        async function fetchSubmissions() {
+            try {
+                const response = await fetch("http://localhost:3000/api/submissions");
+                const data = await response.json();
+                const tableBody = document.getElementById("submissionsTable");
 
-    <!-- Table to Display Submitted Data -->
-    <table id="formDataTable">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Contact</th>
-          <th>Address</th>
-          <th>Email</th>
-          <th>Willingness</th>
-          <th>Products</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Data dynamically populated here -->
-      </tbody>
-    </table>
-  </div>
+                tableBody.innerHTML = ""; // Clear table before inserting new data
 
-  <script src="js/dashboard.js"></script>
-  <script>
-    // Logout Functionality
-    document.getElementById("logoutButton").addEventListener("click", () => {
-      fetch("/api/admin/logout", { method: "POST" })
-        .then(() => window.location.href = "/admin/login.html");
-    });
-  </script>
+                data.forEach(submission => {
+                    const row = document.createElement("tr");
+
+                    row.innerHTML = `
+                       
+                        <td>${submission.name}</td>
+                        <td>${submission.contact}</td>
+                        <td>${submission.address}</td>
+                        <td>${submission.email}</td>
+                        <td>
+                            <table class="nested-table">
+                               
+                                <tbody>
+                                    ${submission.products ? submission.products.map(product => `<tr><td>${product}</td></tr>`).join("") : "<tr><td>N/A</td></tr>"}
+                                </tbody>
+                            </table>
+                        </td>
+                        <td>${submission.willingness}</td>
+                    `;
+
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Error fetching submissions:", error);
+            }
+        }
+
+        // Fetch data when page loads
+        window.onload = fetchSubmissions;
+    </script>
 </body>
 </html>
