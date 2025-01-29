@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posspole RFQ Form</title>
+  <link rel="stylesheet" href="css/donation.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="form-container">
+    <!-- Logo Section -->
+    <div class="logo-container">
+      <img src="/images/logo.png" alt="Posspole Logo" class="logo">
+    </div>
+
+    <h1>POSSPOLE x BIRAC RFQ Form</h1>
+    <form id="rfqForm">
+      <label for="buyerName">Buyer Name <span>*</span></label>
+      <input type="text" id="buyerName" name="buyerName"   placeholder="Enter your name">
+
+      <label for="contact">Contact Detail <span>*</span></label>
+      <input type="text" id="contact" name="contact" required placeholder="Enter your contact detail">
+
+      <label for="company">Company Name</label>
+      <input type="text" id="company" name="company" placeholder="Enter your company name">
+
+      <label for="email">Email ID</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
+
+      <label for="instrumentName">Instrument Name <span>*</span></label>
+      <input type="text" id="instrumentName" name="instrumentName" required placeholder="Enter the instrument name">
+
+      <!-- <label for="specifications">Specifications <span>*</span></label>
+      <textarea id="specifications" name="specifications" required placeholder="Enter specifications"></textarea> -->
+
+      <label>Do you have a Specification Sheet? <span>*</span></label>
+      <div class="radio-group">
+        <div>
+          <input type="radio" id="specSheetYes" name="specSheetOption" value="yes" >
+          <label for="specSheetYes">Yes</label>
+        </div>
+        <div>
+          <input type="radio" id="specSheetNo" name="specSheetOption" value="no" >
+          <label for="specSheetNo">No</label>
+        </div>
+      </div>
+
+
+
+      <div id="specSheetUpload">
+        <label for="specSheet">Upload Specification Sheet (PDF, DOCX, XLSX) <span>*</span></label>
+        <input type="file" id="specSheet" name="specSheet" accept=".pdf, .docx, .xlsx">
+      </div>
+
+      <div id="specSheetText" style="display: none;">
+        <label for="specSheetDetails">Enter Specification Details <span>*</span></label>
+        <textarea id="specSheetDetails" name="specSheetDetails" placeholder="Enter specification details"></textarea>
+      </div>
+
+      <label for="quantity">Total Quantity <span>*</span></label>
+      <input type="number" id="quantity" name="quantity" required placeholder="Enter total quantity">
+
+      <label for="urgency">Urgency Level <span>*</span></label>
+      <div class="radio-group">
+        <div>
+          <input type="radio" id="urgent" name="urgency" value="Urgent" required>
+          <label for="urgent">Urgent</label>
+        </div>
+        <div>
+          <input type="radio" id="standard" name="urgency" value="Standard"  >
+          <label for="standard">Standard</label>
+        </div>
+      </div>
+
+      <label for="additionalInfo">Additional Information</label>
+      <textarea id="additionalInfo" name="additionalInfo" placeholder="Enter any additional details"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <script src="js/rfq.js"></script>
+  </body>
+</html>
