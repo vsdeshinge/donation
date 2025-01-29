@@ -1,0 +1,87 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #121212; /* Dark Black Background */
+    color: #ffffff; /* White Text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container Styling */
+.admin-container {
+    background: #1e1e1e; /* Dark Grey Background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* Light White Shadow */
+    width: 350px;
+    text-align: center;
+}
+
+/* Heading */
+.admin-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-size: 14px;
+    text-align: left;
+    margin: 10px 0 5px;
+    color: #bbbbbb; /* Light Grey */
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444; /* Grey Border */
+    border-radius: 5px;
+    background: #222; /* Darker Grey */
+    color: #ffffff; /* White Text */
+    font-size: 16px;
+    outline: none;
+}
+
+/* Input Placeholder */
+input::placeholder {
+    color: #888; /* Light Grey */
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #ffffff; /* White Button */
+    color: #121212; /* Black Text */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #bbbbbb; /* Light Grey Hover */
+}
+
+/* Error Message */
+#errorMessage {
+    color: #ff4d4d; /* Red Error Text */
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}

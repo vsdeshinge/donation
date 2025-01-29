@@ -120,3 +120,22 @@ button:hover {
 span {
   color: red;
 }
+.donation-message {
+  text-align: center;
+  font-size: 16px;
+  color: #444; /* Dark Grey */
+  margin: 10px auto;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.donation-message strong {
+  color: #222; /* Slightly Darker for Emphasis */
+  font-weight: 600;
+}
+
+.donation-message.emphasis {
+  font-weight: bold;
+  color: #000; /* Stronger Black */
+  margin-top: 15px;
+}

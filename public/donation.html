@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posspole x BIRAC Donation Form</title>
+  <link rel="stylesheet" href="css/donation.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="form-container">
+    <!-- Logo Section -->
+    <div class="logo-container">
+      <img src="/images/logo.png" alt="Posspole Logo" class="logo">
+    </div>
+
+    <!-- Main Heading -->
+    <h1>Support the Revival of<br>Bangalore Biotech Center</h1>
+
+    <!-- Additional Call to Action -->
+    <p class="donation-message">
+      A devastating fire has impacted the <strong>Bangalore Biotech Center</strong>, disrupting critical research and healthcare efforts. 
+      Join us in restoring this vital hub by donating medical devices and equipment.
+    </p>
+
+    <p class="donation-message">
+      Your contribution will help <strong>rebuild laboratories</strong>, restore <strong>diagnostic capabilities</strong>, and ensure 
+      continued innovation in biotechnology and healthcare.
+    </p>
+
+    <p class="donation-message emphasis">
+      Every donation counts. Let’s stand together for science, healthcare, and the future.
+    </p>
+
+    <!-- Donation Form -->
+    <form id="donationForm">
+      <label for="name">Name <span>*</span></label>
+      <input type="text" id="name" name="name" required placeholder="Enter your name">
+
+      <label for="contact">Contact Detail <span>*</span></label>
+      <input type="text" id="contact" name="contact" required placeholder="Enter your contact detail">
+
+      <label for="address">Address</label>
+      <textarea id="address" name="address" placeholder="Enter your address"></textarea>
+
+      <label for="email">Email ID</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
+
+      <label for="categories">Categories <span>*</span></label>
+      <div id="categories" class="categories">
+        <!-- Categories dynamically generated here -->
+      </div>
+
+      <div id="productsContainer" class="products-container">
+        <!-- Product cards dynamically generated here -->
+      </div>
+
+      
+      
+
+      <!-- New Fields Added Below -->
+      <label for="availability">availability date</label>
+      <input type="date" id="availability" name="availability">
+
+      <label for="pickupAddress">pick up address</label>
+      <textarea id="pickupAddress" name="pickupAddress" placeholder="pickup address"></textarea>
+
+
+      <label for="pickupAddress">Remarks</label>
+      <textarea id="Remarks" name="Remarks" placeholder="Remarks"></textarea>
+
+      <label for="willingness">Willingness to Donate <span>*</span></label>
+
+      <div class="radio-group">
+        <div>
+          <input type="radio" id="yes" name="willingness" value="YES" required>
+          <label for="yes">YES</label>
+        </div>
+        <div>
+          <input type="radio" id="no" name="willingness" value="NO" required>
+          <label for="no">NO</label>
+        </div>
+      </div>
+
+      
+
+      <button type="submit" onclick="redirectToLogin()">Submit</button>
+
+     
+    </form>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

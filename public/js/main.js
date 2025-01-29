@@ -75,3 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+function redirectToLogin() {
+  window.location.href = "login_donation.html"; // Redirect to login page
+}

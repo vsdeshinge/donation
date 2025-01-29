@@ -1,46 +1,172 @@
-/* General Styles */
+/* Global Styles */
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full-Screen Body */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    margin: 0;
-    padding: 0;
+  background-color: #f8f9fa;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures full-screen height */
+}
+
+/* Container to Fit Full-Screen */
+.container {
+  width: 90%;
+  max-width: 1400px; /* Increased for full screen */
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Enables scrolling on small screens */
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  margin-top: 10px;
+  border: 1px solid #ddd; /* Ensures table border */
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  background-color: #a9acaf; /* Dark grey */
+  color: white;
+  font-weight: 500;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Nested Table (for Products) */
+.nested-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 5px;
+  background: transparent; /* Remove background color */
+  border: none; /* No border */
+}
+
+.nested-table td, 
+.nested-table th {
+  border: none; /* Remove inner lines */
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+  background: transparent;
+}
+
+.nested-table tr {
+  background: transparent;
+}
+
+/* Logout Button */
+.logout-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.logout-btn:hover {
+  background: #cc0000;
+}
+
+/* Form Type Styling (For better readability in form-related pages) */
+.form-type {
+  font-size: 16px;
+  font-weight: 500;
+  color: #444;
+  padding: 8px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    width: 95%;
+    padding: 20px;
   }
   
-  /* Admin Container */
-  .admin-container {
-    max-width: 400px;
-    margin: 100px auto;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px 30px;
-    text-align: center;
-  }
-  
-  h1 {
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-  
-  /* Input and Button Styling */
-  input, button {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  table {
     font-size: 14px;
   }
-  
-  button {
-    background-color: #333;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
+
+  th, td {
+    padding: 10px;
   }
   
-  button:hover {
-    background-color: #444;
+  .logout-btn {
+    padding: 10px 15px;
+    font-size: 14px;
   }
-  
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  .logout-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 5px;
+  background: #ffffff; /* White Button */
+  color: #121212; /* Black Text */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #bbbbbb; /* Light Grey Hover */
+}
